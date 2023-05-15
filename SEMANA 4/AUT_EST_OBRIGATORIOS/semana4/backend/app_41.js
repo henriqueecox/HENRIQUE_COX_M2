@@ -28,6 +28,71 @@ app.get('/pessoas', (req, res) => {
 			}
 			res.json(rows);
 		});
+		db.close(); // Fecha o banco		
+	});
+app.get('/realizacoes', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	var sql = 'SELECT * FROM realizacoes ORDER BY ID COLLATE NOCASE';
+		db.all(sql, [],  (err, rows ) => {
+			if (err) {
+				throw err;
+			}
+			res.json(rows);
+		});
+		db.close(); // Fecha o banco
+	});
+app.get('/sobre_mim', (req, res) => {
+		res.statusCode = 200;
+		res.setHeader('Access-Control-Allow-Origin', '*');
+		var db = new sqlite3.Database(DBPATH); // Abre o banco
+		var sql = 'SELECT * FROM sobre_mim ORDER BY ID COLLATE NOCASE';
+			db.all(sql, [],  (err, rows ) => {
+				if (err) {
+					throw err;
+				}
+				res.json(rows);
+			});
+			db.close(); // Fecha o banco
+});
+app.get('/habilidades', (req, res) => {
+			res.statusCode = 200;
+			res.setHeader('Access-Control-Allow-Origin', '*');
+			var db = new sqlite3.Database(DBPATH); // Abre o banco
+			var sql = 'SELECT * FROM habilidades ORDER BY ID COLLATE NOCASE';
+				db.all(sql, [],  (err, rows ) => {
+					if (err) {
+						throw err;
+					}
+					res.json(rows);
+				});
+				db.close(); // Fecha o banco
+});
+app.get('/formacoes', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	var sql = 'SELECT * FROM formacoes ORDER BY ID COLLATE NOCASE';
+		db.all(sql, [],  (err, rows ) => {
+			if (err) {
+				throw err;
+			}
+			res.json(rows);
+		});
+		db.close(); // Fecha o banco
+});
+app.get('/experiencias', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	var sql = 'SELECT * FROM experiencias ORDER BY ID COLLATE NOCASE';
+		db.all(sql, [],  (err, rows ) => {
+			if (err) {
+				throw err;
+			}
+			res.json(rows);
+		});
 		db.close(); // Fecha o banco
 });
 
